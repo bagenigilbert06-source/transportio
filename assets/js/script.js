@@ -33,15 +33,17 @@ for (let i = 0; i < navLinks.length; i++) {
 
 const header = document.querySelector("[data-header]");
 const backTopBtn = document.querySelector("[data-back-top-btn]");
+let lastScrollY = window.scrollY;
 
 window.addEventListener("scroll", function () {
   if (!header || !backTopBtn) return;
 
-  if (window.scrollY >= 100) {
-    header.classList.add("active");
-    backTopBtn.classList.add("active");
-  } else {
-    header.classList.remove("active");
-    backTopBtn.classList.remove("active");
-  }
+  const currentScrollY = window.scrollY;
+  const isScrollingDown = currentScrollY > lastScrollY;
+
+  header.classList.toggle("active", currentScrollY >= 100);
+  header.classList.toggle("header-hidden", isScrollingDown && currentScrollY >= 120);
+  backTopBtn.classList.toggle("active", currentScrollY >= 100);
+
+  lastScrollY = currentScrollY;
 });

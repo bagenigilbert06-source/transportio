@@ -21,6 +21,7 @@
    */
 
   --green-blue-crayola: hsl(202, 75%, 47%);
+  --brand-green: #5da915;
   --prussian-blue: hsl(202, 72%, 15%);
   --eerie-black: hsl(210, 11%, 15%);
   --dark-orange: hsl(32, 100%, 50%);
@@ -292,12 +293,16 @@ body {
   z-index: 4;
   background-color: var(--white);
   border-block-end: 1px solid var(--plutinum);
-  transition: var(--transition);
+  transition: transform 260ms ease, background-color 260ms ease, box-shadow 260ms ease;
 }
 
 .header.active {
-  background-color: var(--white);
-  box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.08);
+  background-color: #f2f8e9;
+  box-shadow: 0 8px 24px hsla(96, 70%, 24%, 0.16);
+}
+
+.header.header-hidden {
+  transform: translateY(-110%);
 }
 
 .header .container {
@@ -316,25 +321,27 @@ body {
 .logo-brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   font-family: var(--ff-rubik);
-  font-size: 1.8rem;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
   font-weight: var(--fw-700);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   white-space: nowrap;
+  line-height: 1;
 }
 
 .logo-brand img {
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   object-fit: contain;
-  flex: 0 0 42px;
+  mix-blend-mode: multiply;
+  flex: 0 0 38px;
 }
 
-.logo-brand span { color: var(--prussian-blue); }
+.logo-brand span { color: var(--brand-green); }
 
 .nav-open-btn {
-  color: var(--prussian-blue);
+  color: var(--brand-green);
   font-size: 35px;
 }
 
